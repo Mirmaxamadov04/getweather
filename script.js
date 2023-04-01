@@ -52,7 +52,7 @@ document.querySelector(".search-icon").addEventListener("click", (evt) => {
       }
 
       Location.textContent = ` Weather in ${city}`;
-      Degree.textContent = `${Math.round(json.main.temp)} C`;
+      Degree.textContent = `${Math.round(json.main.temp)} ºC`;
       cloudy.textContent = `${json.weather[0].main}`;
       humidity.textContent = ` Humidity: ${json.main.humidity}%`;
       windspeed.textContent = `Wind Speed: ${json.wind.speed} km/hr`;
