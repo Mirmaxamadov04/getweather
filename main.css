@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("./images/weather.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 780px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.main-div {
+  position: relative;
+  margin: 0px auto;
+  margin-top: 200px;
+  padding: 30px;
+  background: linear-gradient(0deg, #000000, #000000), #000000;
+  opacity: 0.8;
+  border-radius: 55px;
+}
+
+.search-input {
+  padding: 20px 0px;
+  width: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    #585858;
+  opacity: 0.3;
+  border-radius: 55px;
+  border: none;
+  text-transform: uppercase;
+}
+
+.search-input::placeholder {
+  padding-left: 20px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+input[type="text"] {
+  padding-left: 20px;
+  color: #fff;
+  font-size: 26px;
+}
+
+.search-icon {
+  padding: 10px 12px;
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  background-color: #fff;
+  border-radius: 50px;
+  border: none;
+}
+
+.weather-list > p,
+h2 {
+  color: rgba(249, 249, 249, 0.98);
+  padding-left: 30px;
+  font-family: "Poppins";
+  font-style: normal;
+}
+
+.location {
+  padding-top: 40px;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 60px;
+}
+
+.deegre {
+  padding-top: 20px;
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 75px;
+}
+
+.cloudy {
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: rgba(249, 249, 249, 0.98);
+  padding-left: 10px;
+  font-family: "Poppins";
+  font-style: normal;
+}
+
+.humidity,
+.wind-speed {
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.cloudy-div {
+  display: flex;
+  padding-left: 30px;
+}
+
+.image {
+  display: none;
+  margin-top: 10px;
+}
+
+.socials {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.socials > button {
+  margin-left: 5px;
+  padding: 10px;
+  background: rgba(217, 217, 217, 0.1);
+  border: 1.5px solid #ffffff;
+  border-radius: 30px;
+}
