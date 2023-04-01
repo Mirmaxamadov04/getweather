@@ -4,7 +4,10 @@ document.querySelector(".search-icon").addEventListener("click", (evt) => {
   //   console.log(city);
 
   const apiKey = "8dd022e1a43de0e2997bc148747dea96";
-  const city = document.querySelector(".search-input").value;
+  const cityinput = document.querySelector(".search-input").value;
+
+  const city = cityinput.toUpperCase();
+
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
   )
@@ -14,6 +17,7 @@ document.querySelector(".search-icon").addEventListener("click", (evt) => {
         alert("enter valid city name");
         return;
       }
+      console.log(json);
 
       const Location = document.querySelector(".location");
       const Degree = document.querySelector(".deegre");
@@ -48,7 +52,7 @@ document.querySelector(".search-icon").addEventListener("click", (evt) => {
       }
 
       Location.textContent = ` Weather in ${city}`;
-      Degree.textContent = `${json.wind.deg} C`;
+      Degree.textContent = `${Math.round(json.main.temp)} C`;
       cloudy.textContent = `${json.weather[0].main}`;
       humidity.textContent = ` Humidity: ${json.main.humidity}%`;
       windspeed.textContent = `Wind Speed: ${json.wind.speed} km/hr`;
