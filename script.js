@@ -51,7 +51,7 @@ document.querySelector(".search-icon").addEventListener("click", (evt) => {
           Image.src = "";
       }
 
-      Location.textContent = ` Weather in ${city}`;
+      Location.textContent = ` Weather in ${city}, ${json.sys.country}`;
       Degree.textContent = `${Math.round(json.main.temp)} ºC`;
       cloudy.textContent = `${json.weather[0].main}`;
       humidity.textContent = ` Humidity: ${json.main.humidity}%`;
