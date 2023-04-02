@@ -5,11 +5,12 @@
 }
 
 body {
-  background-image: url("./images/weather.jpeg");
+  background-color: lightskyblue;
   background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
-  min-height: 100%;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 .container {
@@ -21,56 +22,77 @@ body {
 .main-div {
   position: relative;
   margin: 0px auto;
-  margin-top: 200px;
-  padding: 30px;
-  background: linear-gradient(0deg, #000000, #000000), #000000;
+  margin-top: 70px;
+  padding: 0px 70px;
+  padding-top: 53px;
+  background: linear-gradient(0deg, #ffffff, #ffffff), #000000;
   opacity: 0.8;
-  border-radius: 55px;
+  border-radius: 16px;
 }
 
 .search-input {
   padding: 20px 0px;
   width: 100%;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    #585858;
-  opacity: 0.3;
-  border-radius: 55px;
   border: none;
-  text-transform: uppercase;
+  border: 1px solid black;
+  border-radius: 16px;
 }
 
 .search-input::placeholder {
-  padding-left: 20px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
   line-height: 45px;
-  color: rgba(255, 255, 255, 0.3);
+  color: black;
+  opacity: 0.3;
 }
 
 input[type="text"] {
-  padding-left: 20px;
-  color: #fff;
+  opacity: 0.8;
+  padding-left: 40px;
+  color: black;
   font-size: 26px;
+  font-weight: 100;
 }
 
 .search-icon {
   padding: 10px 12px;
+  padding-bottom: 8px;
   position: absolute;
-  top: 40px;
-  right: 50px;
+  top: 60px;
+  right: 85px;
   background-color: #fff;
   border-radius: 50px;
   border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.search-icon-image {
+  text-align: center;
+}
+
+.form input:focus + .search-icon path {
+  fill: blue;
+}
+
+.search-icon path:hover {
+  fill: blue;
 }
 
 .weather-list > p,
 h2 {
-  color: rgba(249, 249, 249, 0.98);
+  opacity: 0.8;
+  color: black;
   padding-left: 30px;
   font-family: "Poppins";
   font-style: normal;
+  font-weight: 300;
+}
+
+.weather-list > h2 {
+  font-weight: 400;
 }
 
 .location {
@@ -88,11 +110,13 @@ h2 {
 }
 
 .cloudy {
+  opacity: 0.8;
+  font-weight: 250;
   margin-top: 10px;
   font-weight: 500;
   font-size: 20px;
   line-height: 30px;
-  color: rgba(249, 249, 249, 0.98);
+  color: black;
   padding-left: 10px;
   font-family: "Poppins";
   font-style: normal;
@@ -117,16 +141,78 @@ h2 {
 }
 
 .socials {
-  margin-top: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   display: flex;
   justify-content: center;
   margin: 0 auto;
 }
 
-.socials > button {
-  margin-left: 5px;
-  padding: 10px;
-  background: rgba(217, 217, 217, 0.1);
-  border: 1.5px solid #ffffff;
+.socials > a {
+  position: relative;
+  margin-left: 10px;
+  padding: 10px 12px;
+  background-color: #5151d7;
+  border: 1.5px solid #5151d7;
   border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.socials > a:hover {
+  background-color: #fff;
+}
+
+.socials > a:hover path {
+  fill: #5151d7;
+}
+.error-shows {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 200;
+  opacity: 0.8;
+}
+
+.none {
+  display: none;
+}
+
+@media screen and (max-width: 575px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .main-div {
+    margin-top: 50px;
+    padding: 0px 50px;
+    padding-top: 53px;
+    background: linear-gradient(0deg, #ffffff, #ffffff), #000000;
+    opacity: 0.8;
+    border-radius: 16px;
+  }
+
+  .form {
+    display: flex;
+    justify-content: center;
+  }
+
+  .search-input {
+    padding: 20px 0px;
+    width: 90%;
+    border: none;
+    border: 1px solid black;
+    border-radius: 16px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search-icon {
+    padding: 10px 5px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .search-icon {
+    display: none;
+  }
 }

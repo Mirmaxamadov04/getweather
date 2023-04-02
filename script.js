@@ -1,11 +1,19 @@
-document.querySelector(".search-icon").addEventListener("click", (evt) => {
+const elBody = document.querySelector("body");
+const elForm = document.querySelector(".form");
+const elErrorShows = document.querySelector(".error-shows");
+const elList = document.querySelector(".weather-list");
+const Location = document.querySelector(".location");
+const Degree = document.querySelector(".deegre");
+const cloudy = document.querySelector(".cloudy");
+const humidity = document.querySelector(".humidity");
+const windspeed = document.querySelector(".wind-speed");
+const Image = document.querySelector(".image");
+
+elForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  //   const city = document.querySelector(".search-input").value;
-  //   console.log(city);
 
   const apiKey = "8dd022e1a43de0e2997bc148747dea96";
   const cityinput = document.querySelector(".search-input").value;
-
   const city = cityinput.toUpperCase();
 
   fetch(
@@ -14,17 +22,17 @@ document.querySelector(".search-icon").addEventListener("click", (evt) => {
     .then((response) => response.json())
     .then((json) => {
       if (json.cod === "404") {
-        alert("enter valid city name");
+        elErrorShows.textContent = "Please, enter valid city name!!!";
+        Location.textContent = "";
+        Degree.textContent = "";
+        cloudy.textContent = "";
+        humidity.textContent = "";
+        windspeed.textContent = "";
+        Image.style.display = "none";
+
         return;
       }
-      console.log(json);
 
-      const Location = document.querySelector(".location");
-      const Degree = document.querySelector(".deegre");
-      const cloudy = document.querySelector(".cloudy");
-      const humidity = document.querySelector(".humidity");
-      const windspeed = document.querySelector(".wind-speed");
-      const Image = document.querySelector(".image");
       Image.style.display = "block";
       switch (json.weather[0].main) {
         case "Clear":
@@ -48,9 +56,9 @@ document.querySelector(".search-icon").addEventListener("click", (evt) => {
           break;
 
         default:
-          Image.src = "";
+          Image.src = "./images/mist.png";
       }
-
+      elErrorShows.textContent = "";
       Location.textContent = ` Weather in ${city}, ${json.sys.country}`;
       Degree.textContent = `${Math.round(json.main.temp)} ºC`;
       cloudy.textContent = `${json.weather[0].main}`;
